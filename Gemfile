@@ -9,6 +9,8 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 
 gem 'devise-bootstrap-views'
+
+gem 'stock_quote'
 # encrypts passwords.
 gem 'bcrypt', '~> 3.1.7'
 # pagination gem.
