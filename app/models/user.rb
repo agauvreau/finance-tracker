@@ -7,6 +7,12 @@ class User < ActiveRecord::Base
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
   
+  #this method will return de first and last name of a user, if none are present it will return Anonymous
+  def full_name
+    return "#{first_name} #{last_name}".strip if (first_name || last_name)
+    "Anonymous"
+  end
+  
   #the 3 methods bellow will be used with if code in the lookup partial. We use them to show or hide a specific piece of information
   #depending on the user stock portfolio (can he add a stock?, already 10 stock?, already tracking that stock?)
   def can_add_stock?(ticker_symbol)

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  #this tells the system to look in the users / registration folder for an additionnal controller. (the one telling devise to take in the last and first name)
+  devise_for :users, :controllers => { :registrations => "user/registrations" }
+  
   #this is automatically added when using the scaffold generator, but we remove the show, edit and update action to be safe.
   resources :user_stocks, except: [:show, :edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.
