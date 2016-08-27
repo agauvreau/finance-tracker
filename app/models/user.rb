@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   #these 2 lines link the stock and user tables with the user_stock table (a stock can have multiple users and vice versa)
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
+  has_many :friendships
+  has_many :friends, through: :friendships
   
   #this method will return de first and last name of a user, if none are present it will return Anonymous
   def full_name
